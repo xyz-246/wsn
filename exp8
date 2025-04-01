@@ -1,0 +1,13 @@
+import paho.mqtt.client as mqtt 
+import random 
+import time 
+client=mqtt.Client() 
+client.connect("localhost",1883,60) 
+while True: 
+temperature=random.randint(20,30) 
+humidity=random.randint(30,70) 
+air_quality=random.randint(50,100) 
+client.publish("environment/temperature",temperature) 
+client.publish("environment/humidity",humidity) 
+client.publish("environment/air_quality",air_quality) 
+time.sleep(5)
